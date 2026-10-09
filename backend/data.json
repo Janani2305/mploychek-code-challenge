@@ -1,0 +1,12 @@
+{
+  "users": [
+    { "userId": "admin1", "password": "admin123", "name": "Admin One", "role": "Admin" },
+    { "userId": "user1", "password": "user123", "name": "User One", "role": "General User" }
+  ],
+  "records": [
+    { "id": 1, "title": "Company Policy", "access": "General User" },
+    { "id": 2, "title": "Salary Report", "access": "Admin" },
+    { "id": 3, "title": "Verification Status", "access": "General User" },
+    { "id": 4, "title": "Audit Log", "access": "Admin" }
+  ]
+}

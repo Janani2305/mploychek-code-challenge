@@ -1,0 +1,24 @@
+@if (user) {
+  <h2>Welcome, {{ user.name }}</h2>
+  <p>User ID: {{ user.userId }}</p>
+  <p>Role: {{ user.role }}</p>
+}
+
+@if (loading()) {
+  <p>Loading records...</p>
+} @else {
+  <table>
+    <thead>
+      <tr><th>ID</th><th>Title</th><th>Access</th></tr>
+    </thead>
+    <tbody>
+      @for (r of records(); track r.id) {
+        <tr>
+          <td>{{ r.id }}</td>
+          <td>{{ r.title }}</td>
+          <td>{{ r.access }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}
