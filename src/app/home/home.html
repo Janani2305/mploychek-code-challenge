@@ -1,9 +1,10 @@
 @if (user) {
-  <h2>Welcome, {{ user.name }}</h2>
-  <p>User ID: {{ user.userId }}</p>
-  <p>Role: {{ user.role }}</p>
+  <div class="welcome">
+    <h2>Welcome, {{ user.name }}</h2>
+    <p>User ID: {{ user.userId }} | Role: {{ user.role }}</p>
+    <p>You can view {{ records().length }} records at your access level.</p>
+  </div>
 }
-
 @if (loading()) {
   <p>Loading records...</p>
 } @else {
