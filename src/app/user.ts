@@ -8,6 +8,13 @@ export interface RecordItem {
   access: string;
 }
 
+export interface AppUser {
+  userId: string;
+  password: string;
+  name: string;
+  role: string;
+}
+
 @Service()
 export class UserService {
   private http = inject(HttpClient);
@@ -17,5 +24,17 @@ export class UserService {
     return this.http.get<RecordItem[]>(`${this.api}/records`, {
       params: { role, delay },
     });
+  }
+
+  getUsers(delay = 0): Observable<AppUser[]> {
+    return this.http.get<AppUser[]>(`${this.api}/users`, { params: { delay } });
+  }
+
+  addUser(user: AppUser): Observable<AppUser> {
+    return this.http.post<AppUser>(`${this.api}/users`, user);
+  }
+
+  deleteUser(userId: string): Observable<unknown> {
+    return this.http.delete(`${this.api}/users/${userId}`);
   }
 }

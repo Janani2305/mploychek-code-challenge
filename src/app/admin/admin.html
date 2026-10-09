@@ -1,0 +1,32 @@
+ <h2>Manage Users</h2>
+
+<form [formGroup]="form" (ngSubmit)="add()">
+  <input formControlName="userId" placeholder="User ID" />
+  <input formControlName="name" placeholder="Name" />
+  <input type="password" formControlName="password" placeholder="Password" />
+  <select formControlName="role">
+    <option>General User</option>
+    <option>Admin</option>
+  </select>
+  <button type="submit" [disabled]="form.invalid">Add user</button>
+</form>
+
+@if (loading()) {
+  <p>Loading users...</p>
+} @else {
+  <table>
+    <thead>
+      <tr><th>User ID</th><th>Name</th><th>Role</th><th></th></tr>
+    </thead>
+    <tbody>
+      @for (u of users(); track u.userId) {
+        <tr>
+          <td>{{ u.userId }}</td>
+          <td>{{ u.name }}</td>
+          <td>{{ u.role }}</td>
+          <td><button (click)="remove(u.userId)">Delete</button></td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}

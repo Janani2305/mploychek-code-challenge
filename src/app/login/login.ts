@@ -25,6 +25,7 @@ export class Login {
 
   submit() {
     if (this.form.invalid) return;
+    localStorage.removeItem('user');
     this.loading.set(true);
     this.error.set('');
     const { userId, password, role } = this.form.value;

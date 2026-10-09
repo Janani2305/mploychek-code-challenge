@@ -1,6 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { RouterLink, RouterOutlet} from '@angular/router';
-imports: [RouterOutlet, RouterLink]
+import { Component, inject, signal } from '@angular/core';
+import { Router, RouterOutlet, RouterLink } from '@angular/router';
 
 @Component({
   imports: [RouterOutlet, RouterLink],
@@ -9,5 +8,11 @@ imports: [RouterOutlet, RouterLink]
   templateUrl: './app.html',
 })
 export class App {
+  private router = inject(Router);
   protected readonly title = signal('mploychek-app');
+
+  logout() {
+    localStorage.removeItem('user');
+    this.router.navigate(['/login']);
+  }
 }
