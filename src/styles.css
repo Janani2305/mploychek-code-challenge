@@ -1,1 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --primary: #4f46e5;
+  --bg: #f1f5f9;
+  --text: #1e293b;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 14px 24px;
+  background: var(--primary);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav button {
+  margin-left: auto;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+h2 {
+  margin: 24px;
+}
+
+table {
+  margin: 0 24px;
+  width: calc(100% - 48px);
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th {
+  background: var(--primary);
+  color: white;
+  text-align: left;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+input, select {
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+}
